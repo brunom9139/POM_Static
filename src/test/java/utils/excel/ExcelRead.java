@@ -121,12 +121,12 @@ public class ExcelRead {
 
     public String getValue(String columnName) {
         int position=-1;
-        //SessionId sessionId;
-        String sessionId;
+        SessionId sessionId;
+        //String sessionId;
         try{
             cargarDatosSyncronized();
-            //sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
-            sessionId = GlobalData.getSessionId();
+            sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
+            //sessionId = GlobalData.getSessionId();
             DataParallel data= Data.getDataParallel(sessionId.toString());
             if (table != null && !isOutLine()) {
                 position = getPosition(data.getTestCaseId());
@@ -134,8 +134,8 @@ public class ExcelRead {
                 return table.get(position).get(columnName.toUpperCase()).trim();
             }
             if (table != null && isOutLine()) {
-                //sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
-                sessionId = GlobalData.getSessionId();
+                sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
+                //sessionId = GlobalData.getSessionId();
                 position=Data.getPositionOutline(data.getTestCaseId(),sessionId.toString());
                 Allure.addAttachment(columnName,tableOutLine.get(position).get(columnName.toUpperCase()).trim());
                 return tableOutLine.get(position).get(columnName.toUpperCase()).trim();

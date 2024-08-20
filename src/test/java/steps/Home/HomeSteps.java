@@ -12,7 +12,7 @@ public class HomeSteps {
 
 
     @Dado("que ingreso el texto {string}")
-    public void queIngresoElTexto(String hola) throws Exception {
-        HomePage.prueba(hola);
+    public void queIngresoElTexto(String NombreEquipo) throws Exception {
+        HomePage.prueba(NombreEquipo);
     }
 }

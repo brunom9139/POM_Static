@@ -57,10 +57,9 @@ public class Data {
         DataParallel data = new DataParallel();
         data.setModulo(tags.get(1).replace("@", ""));
         data.setTestCaseId(tags.get(tags.size() - 1));
-        //SessionId sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
-        String sessionId = generarHexAleatorio(32);
+        SessionId sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
         data.setSessionId(sessionId.toString());
-        GlobalData.setSessionId(sessionId); // Almacena el sessionId globalmente
+        GlobalData.setSessionId(sessionId.toString()); // Almacena el sessionId globalmente
         Common.listParallel.add(data);
     }
 
@@ -88,17 +87,5 @@ public class Data {
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
-    }
-
-    public static String generarHexAleatorio(int longitud) {
-        SecureRandom random = new SecureRandom();
-        StringBuilder sb = new StringBuilder(longitud);
-
-        for (int i = 0; i < longitud; i++) {
-            int randomNum = random.nextInt(16);  // Genera un número aleatorio entre 0 y 15
-            sb.append(Integer.toHexString(randomNum));  // Convierte el número a hexadecimal
-        }
-
-        return sb.toString();
     }
 }
