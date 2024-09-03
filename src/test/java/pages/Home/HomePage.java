@@ -1,6 +1,6 @@
 package pages.Home;
 
-import actions.Escribir;
+import acciones.Escribir;
 import org.openqa.selenium.By;
 import utils.excel.Data;
 
