@@ -43,4 +43,17 @@ public class Hook {
             WebDriverManager.closeDriver();
         }
     }
+
+
+    public static void captura() {
+        try {
+            Allure.addAttachment(
+                    "Captura de pantalla",
+                    new ByteArrayInputStream(((TakesScreenshot) Session.getInstance().getWebDriver()).getScreenshotAs(OutputType.BYTES))
+            );
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
