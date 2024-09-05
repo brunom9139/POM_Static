@@ -13,7 +13,8 @@ import java.io.IOException;
 @CucumberOptions(
         features = "src/test/java/features",//donde estara lo que se debe ejecutar
         plugin = {
-                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
+                "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm" //este genera el reporte en allure
+                //"pretty","html:target/cucumber-reports.html" //este es para generar reporte en cucumber
         },
         glue = "steps",//indica donde encontrar las pasos con los metodos, asociadoas a los pasos de los escenarios
         tags = "@11"

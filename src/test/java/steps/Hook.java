@@ -38,6 +38,11 @@ public class Hook {
                     scenario.getName(),
                     new ByteArrayInputStream(((TakesScreenshot) Session.getInstance().getWebDriver()).getScreenshotAs(OutputType.BYTES))
             );
+
+            //Esto es para generar una un reporte
+            /*byte [] screenshot = ((TakesScreenshot) Session.getInstance().getWebDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot,"image/png",scenario.getName());*/
+
             WebDriverManager.closeDriver();
         } catch (Exception e) {
             WebDriverManager.closeDriver();
