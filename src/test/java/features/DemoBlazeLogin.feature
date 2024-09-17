@@ -15,7 +15,7 @@ Característica: Test de registro de usuarios, logueo y desbloqueó
   Escenario: Registro usuario fallido - credenciales inválidas
     Dado Un usuario no registrado se desea registrar a la página web de la empresa
     Cuando Ingresa nombre de usuario y contraseña incorrectos o inválidos "username" "password"
-    #Entonces No se permite registrar el usuario
+    Entonces No se permite registrar el usuario "alert"
 
   @TEST @LOGUEO @TEST_003
   Escenario: Registro fallido - usuario ya registrado

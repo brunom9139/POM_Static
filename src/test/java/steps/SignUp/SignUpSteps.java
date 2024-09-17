@@ -39,4 +39,6 @@ public class SignUpSteps {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarTextAlerta(alert);
     }
+
+
 }
