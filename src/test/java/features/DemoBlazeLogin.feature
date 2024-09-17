@@ -1,6 +1,6 @@
 # language: es
 
-Característica: Test de registro de usuarios, logueo y desbloqueó
+Característica: Test de registro de usuarios, logueo y deslogueo
   Como un usuario del sistema,
   Quiero poder registrarme si no tengo cuenta, iniciar sesión y cerrar sesión,
   Para asegurarme de que puedo acceder a las funcionalidades del sistema

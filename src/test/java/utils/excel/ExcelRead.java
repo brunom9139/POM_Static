@@ -10,7 +10,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
 import org.testng.Assert;
-import reader.ConfigReader;
+import utils.ConfigReader;
 
 import java.io.File;
 import java.io.FileInputStream;

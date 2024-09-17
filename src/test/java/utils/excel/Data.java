@@ -4,7 +4,7 @@ import factory.Session;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.remote.SessionId;
-import reader.ConfigReader;
+import utils.ConfigReader;
 
 import java.io.File;
 import java.io.IOException;

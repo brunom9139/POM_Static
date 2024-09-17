@@ -20,7 +20,7 @@ public class SignUpSteps {
 
     @Cuando("Ingresa nombre de usuario y contraseña incorrectos o inválidos {string} {string}")
     public void ingresaNombreDeUsuarioYContrasenaIncorrectosOInvalidos(String username, String password) throws Exception {
-        SignUpPage.signUpYaRegistrados(username,password);
+        SignUpPage.signUpUnico(username,password);
     }
 
     @Cuando("Ingresa nombre de usuario y contraseña ya registrados {string} {string}")
