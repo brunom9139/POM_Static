@@ -17,7 +17,7 @@ import java.io.IOException;
                 //"pretty","html:target/cucumber-reports.html" //este es para generar reporte en cucumber
         },
         glue = "steps",//indica donde encontrar las pasos con los metodos, asociadoas a los pasos de los escenarios
-        tags = "@11"
+        tags = "@LOGUEO"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
