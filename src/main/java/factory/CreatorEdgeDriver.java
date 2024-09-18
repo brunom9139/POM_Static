@@ -11,10 +11,10 @@ public class CreatorEdgeDriver {
 
     public static WebDriver createWebDriver() {
         EdgeOptions optionsEdge = new EdgeOptions();
-        optionsEdge.addArguments(new String[]{"--start-maximized"});
-        optionsEdge.addArguments(new String[]{"--disable-extensions"});
+        optionsEdge.addArguments("--start-maximized");
+        optionsEdge.addArguments("--disable-extensions");
         if (ConfigReader.isHeadlessModeEnabled()) {
-            optionsEdge.addArguments(new String[]{"--headless"});
+            optionsEdge.addArguments("--headless");
         }
 
         return new EdgeDriver(optionsEdge);

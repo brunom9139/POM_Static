@@ -12,24 +12,16 @@ public class WebDriverManager {
     public static void initializeDriver() {
         WebDriver driver = Session.getInstance().getWebDriver();
         if (driver == null && ConfigReader.getBaseUrl() != null) {
-            //Object driver;
-            switch (ConfigReader.getBrowser().toUpperCase()) {
-                case "CHROME":
-                    driver = CreatorChromeDriver.createWebDriver();
-                    break;
-                case "FIREFOX":
-                    driver = CreatorFirefoxDriver.createWebDriver();
-                    break;
-                case "EDGE":
-                    driver = CreatorEdgeDriver.createWebDriver();
-                    break;
-                default:
-                    driver = new ChromeDriver();
-            }
+            driver = switch (ConfigReader.getBrowser().toUpperCase()) {
+                case "CHROME" -> CreatorChromeDriver.createWebDriver();
+                case "FIREFOX" -> CreatorFirefoxDriver.createWebDriver();
+                case "EDGE" -> CreatorEdgeDriver.createWebDriver();
+                default -> new ChromeDriver();
+            };
 
-            Session.getInstance().setWebDriver((WebDriver)driver);
-            ((WebDriver)driver).manage().timeouts().implicitlyWait(Duration.ofMillis((long)ConfigReader.getTimeImplicit()));
-            ((WebDriver)driver).get(ConfigReader.getBaseUrl());
+            Session.getInstance().setWebDriver(driver);
+            driver.manage().timeouts().implicitlyWait(Duration.ofMillis(ConfigReader.getTimeImplicit()));
+            driver.get(ConfigReader.getBaseUrl());
         }
 
     }

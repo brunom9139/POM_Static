@@ -10,8 +10,8 @@ public class CreatorFirefoxDriver {
 
     public static WebDriver createWebDriver() {
         FirefoxOptions optionsFirefox = new FirefoxOptions();
-        optionsFirefox.addArguments(new String[]{"-private"});
-        optionsFirefox.addArguments(new String[]{"--window-size=1920,1080"});
+        optionsFirefox.addArguments("-private");
+        optionsFirefox.addArguments("--window-size=1920,1080");
         return new FirefoxDriver(optionsFirefox);
     }
 }

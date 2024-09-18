@@ -7,7 +7,7 @@ public class Session {
     private static ThreadLocal<WebDriver> webDriverThreadLocal;
 
     private Session() {
-        webDriverThreadLocal = new ThreadLocal();
+        webDriverThreadLocal = new ThreadLocal<>();
     }
 
     public static Session getInstance() {
@@ -19,7 +19,7 @@ public class Session {
     }
 
     public WebDriver getWebDriver() {
-        return (WebDriver)webDriverThreadLocal.get();
+        return webDriverThreadLocal.get();
     }
 
     public void setWebDriver(WebDriver webDriver) {

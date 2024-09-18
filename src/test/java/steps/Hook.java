@@ -15,11 +15,9 @@ import java.io.IOException;
 import java.util.List;
 
 public class Hook {
-    @Before(order = 0)
+
+    @Before(order = 1)
     public synchronized void antes(Scenario scenario) throws IOException {
-        //WebDriver driver = WebDriverManager.getDriver();
-        /*System.out.println("Inicio el driver");
-        System.out.println(STR."Inicio scenario name   : \{scenario.getName()}");*/
         if (WebDriverManager.getDriver() == null) {
             WebDriverManager.initializeDriver();
             Data.setearTagsExcel((List<String>) scenario.getSourceTagNames());
@@ -28,11 +26,6 @@ public class Hook {
 
     @After(order = 0)
     public synchronized void despues(Scenario scenario) {
-        /*System.out.println("--------------------------------------------------------------");
-        System.out.println(STR."Final scenario name   : \{scenario.getName()}");
-        System.out.println(STR."Final scenario state  : \{scenario.getStatus()}");
-        System.out.println("--------------------------------------------------------------");*/
-
         try {
             Allure.addAttachment(
                     scenario.getName(),
