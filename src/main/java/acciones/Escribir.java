@@ -30,7 +30,7 @@ public class Escribir {
                     JavaScript.escribir(elemento, texto);
                 } else {
                     elemento.clear();
-                    elemento.sendKeys(new CharSequence[]{texto});
+                    elemento.sendKeys(texto);
                 }
             } else {
                 System.out.println("El elemento no se encontró o no es escribible.");

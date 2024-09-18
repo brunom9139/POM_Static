@@ -9,12 +9,12 @@ public class JavaScript {
     }
 
     public static void scrollLocator(WebElement elemento) {
-        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", new Object[]{elemento});
+        ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].scrollIntoView(true);", elemento);
     }
 
     public static void click(WebElement elemento) {
         try {
-            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].click();", new Object[]{elemento});
+            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].click();", elemento);
         } catch (Exception var2) {
             var2.printStackTrace();
             throw var2;
@@ -23,7 +23,7 @@ public class JavaScript {
 
     public static void limpiar(WebElement elemento) {
         try {
-            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].value = '';", new Object[]{elemento});
+            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].value = '';", elemento);
         } catch (Exception var2) {
             var2.printStackTrace();
             throw var2;
@@ -32,7 +32,7 @@ public class JavaScript {
 
     public static void escribir(WebElement elemento, String texto) {
         try {
-            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].value = arguments[1];", new Object[]{elemento, texto});
+            ((JavascriptExecutor)WebDriverManager.getDriver()).executeScript("arguments[0].value = arguments[1];", elemento, texto);
         } catch (Exception var3) {
             var3.printStackTrace();
             throw var3;

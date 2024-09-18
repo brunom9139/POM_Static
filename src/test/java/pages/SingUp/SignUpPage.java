@@ -13,9 +13,9 @@ public class SignUpPage {
     public static final By BOTON_SIGN_UP = By.xpath("//button[@onclick='register()']");
 
     public static void signUpUnico(String username,String password) throws Exception {
-        String dataExcel = Data.get(username);
+        String dataUsernameExcel = Data.get(username);
         String textRandon = RandonStrings.generarCadenaAleatoria(10);
-        String usernameFinal = dataExcel+ textRandon;
+        String usernameFinal = dataUsernameExcel + textRandon;
         Escribir.Escribir(INPUT_USERNAME, usernameFinal);
         Escribir.Escribir(INPUT_PASSWORD, Data.get(password));
         Click.Clickear(BOTON_SIGN_UP);

@@ -19,7 +19,7 @@ public class SubirArchivo {
                     ElementoResaltado.resaltar(elemento);
                 }
 
-                elemento.sendKeys(new CharSequence[]{archivo.getAbsolutePath()});
+                elemento.sendKeys(archivo.getAbsolutePath());
             }
 
         } catch (Exception var3) {

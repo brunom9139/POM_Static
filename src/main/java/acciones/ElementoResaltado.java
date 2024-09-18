@@ -11,7 +11,7 @@ public class ElementoResaltado {
 
     public static void resaltar(WebElement elemento) {
         JavascriptExecutor js = (JavascriptExecutor)WebDriverManager.getDriver();
-        js.executeScript("arguments[0].style.border='2px solid " + ConfigReader.obtenerColorElemento() + "'", new Object[]{elemento});
+        js.executeScript("arguments[0].style.border='2px solid " + ConfigReader.obtenerColorElemento() + "'", elemento);
 
         try {
             Thread.sleep((long)ConfigReader.obtenerTiempoResaltadoElemento());
@@ -19,6 +19,6 @@ public class ElementoResaltado {
             var3.printStackTrace();
         }
 
-        js.executeScript("arguments[0].style.border=''", new Object[]{elemento});
+        js.executeScript("arguments[0].style.border=''", elemento);
     }
 }
