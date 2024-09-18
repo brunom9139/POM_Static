@@ -13,11 +13,10 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import java.security.SecureRandom;
 import java.util.List;
 
 public class Data {
-    public synchronized static String get(String columnName) throws Exception {
+    public synchronized static String get(String columnName) {
         return ExcelRead.getInstance().getValue(columnName);
     }
 
@@ -56,7 +55,7 @@ public class Data {
         DownloadFileHook();
         DataParallel data = new DataParallel();
         data.setModulo(tags.get(1).replace("@", ""));
-        data.setTestCaseId(tags.get(tags.size() - 1));
+        data.setTestCaseId(tags.getLast());
         SessionId sessionId = ((RemoteWebDriver) Session.getInstance().getWebDriver()).getSessionId();
         data.setSessionId(sessionId.toString());
         GlobalData.setSessionId(sessionId.toString()); // Almacena el sessionId globalmente
