@@ -23,7 +23,7 @@ public class TestRunner extends AbstractTestNGCucumberTests {
     @BeforeSuite
     public void setupTags() {
         // Obtener el tag desde las propiedades del sistema
-        String tag = System.getProperty("cucumber.filter.tags", "@TEST_002"); // Valor por defecto
+        String tag = System.getProperty("cucumber.filter.tags", "@TEST"); // Valor por defecto
         // Ajustar el valor de 'tags' en tiempo de ejecución
         System.setProperty("cucumber.filter.tags", tag);
     }

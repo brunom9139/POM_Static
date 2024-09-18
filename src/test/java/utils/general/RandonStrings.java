@@ -13,7 +13,6 @@ public class RandonStrings {
             int index = random.nextInt(caracteres.length());
             cadena.append(caracteres.charAt(index));
         }
-
         return cadena.toString();
     }
 

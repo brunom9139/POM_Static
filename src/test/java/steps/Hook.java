@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Hook {
 
-    @Before(order = 1)
+    @Before(order = 0)
     public synchronized void antes(Scenario scenario) throws IOException {
         if (WebDriverManager.getDriver() == null) {
             WebDriverManager.initializeDriver();
