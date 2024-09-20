@@ -36,7 +36,7 @@ public class Acciones {
 
     public static void clickEscribirFlechaAbajoEnter(By locator, String text) {
         Actions actions = new Actions(WebDriverManager.getDriver());
-        actions.click(BuscarElemento.buscarElemento(locator)).sendKeys(new CharSequence[]{text}).sendKeys(new CharSequence[]{Keys.ARROW_DOWN}).sendKeys(new CharSequence[]{Keys.ENTER}).perform();
+        actions.click(BuscarElemento.buscarElemento(locator)).sendKeys(text).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
     }
 
     public static void hacerDobleClick(By locator) {
