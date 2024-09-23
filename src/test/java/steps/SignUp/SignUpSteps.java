@@ -5,6 +5,7 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import pages.Home.HomePage;
 import pages.SingUp.SignUpPage;
+import steps.Hook;
 
 public class SignUpSteps {
 
@@ -29,15 +30,17 @@ public class SignUpSteps {
     }
 
     @Entonces("Se registra el usuario correctamente {string}")
-    public void seRegistraElUsuarioCorrectamente(String alert) throws Exception {
+    public void seRegistraElUsuarioCorrectamente(String alert) {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarTextAlerta(alert);
+        Hook.captura();
     }
 
     @Entonces("No se permite registrar el usuario {string}")
-    public void noSePermiteRegistrarElUsuario(String alert) throws Exception {
+    public void noSePermiteRegistrarElUsuario(String alert) {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarTextAlerta(alert);
+        Hook.captura();
     }
 
 

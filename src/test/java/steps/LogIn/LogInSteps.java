@@ -5,6 +5,7 @@ import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
 import pages.Home.HomePage;
 import pages.LogIn.LogInPage;
+import steps.Hook;
 
 public class LogInSteps {
     @Dado("Un usuario registrado se desea loguear a la página web de la empresa")
@@ -28,12 +29,14 @@ public class LogInSteps {
     }
 
     @Entonces("Se loguea en la pagina correctamente {string}")
-    public void seLogueaEnLaPaginaCorrectamente(String login) throws Exception {
+    public void seLogueaEnLaPaginaCorrectamente(String login) {
         HomePage.ValidateLogin(login);
+        Hook.captura();
     }
 
     @Entonces("No se loguea informando la situación {string}")
-    public void noSeLogueaInformandoLaSituacion(String alert) throws Exception {
+    public void noSeLogueaInformandoLaSituacion(String alert) {
         LogInPage.ValidateNoLogin(alert);
+        Hook.captura();
     }
 }

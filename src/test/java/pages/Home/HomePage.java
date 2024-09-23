@@ -19,13 +19,13 @@ public class HomePage {
         Click.Clickear(BOTON_LOG_IN);
     }
 
-    public static void ValidateLogin(String text) throws Exception {
+    public static void ValidateLogin(String text) {
         String textoValidate = Data.get(text);
         String textoWeb = Texto.getTexto(BUTTON_WELCOME_LOGIN);
         Assert.assertEquals(textoValidate,textoWeb, "No se pudo validar el texto");
     }
 
-    public static void ValidateLogout(String text) throws Exception {
+    public static void ValidateLogout(String text) {
         String textoValidate = Data.get(text);
         String textoWeb = Texto.getTexto(BOTON_SIGN_UP);
         Assert.assertEquals(textoValidate,textoWeb, "No se pudo validar el texto");

@@ -34,7 +34,7 @@ public class SignUpPage {
         Assert.assertTrue(alertaIsPresent);
     }
 
-    public static void validarTextAlerta(String alert) throws Exception {
+    public static void validarTextAlerta(String alert) {
         String alertaText = Data.get(alert);
         String alertaIsPresent = Alerta.alertaGetText();
         Assert.assertEquals(alertaText, alertaIsPresent,"No se pudo validar la alerta");

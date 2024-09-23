@@ -31,7 +31,7 @@ public class LogInPage {
     }
 
 
-    public static void ValidateNoLogin(String alert) throws Exception {
+    public static void ValidateNoLogin(String alert) {
         String dataValidate = Data.get(alert);
         String alertaIsPresent = Alerta.alertaGetText();
         Assert.assertEquals(dataValidate,alertaIsPresent);
