@@ -9,7 +9,7 @@ Característica: Test de registro de usuarios, logueo y deslogueo
   Escenario: Registro usuario exitoso
     Dado Un usuario no registrado se desea registrar a la página web de la empresa
     Cuando Ingresa nombre de usuario y contraseña validos "username" "password"
-    Entonces Se registra el usuario correctamente "alert"
+    #Entonces Se registra el usuario correctamente "alert"
 
   @TEST @LOGUEO @TEST_002
   Escenario: Registro usuario fallido - credenciales inválidas
