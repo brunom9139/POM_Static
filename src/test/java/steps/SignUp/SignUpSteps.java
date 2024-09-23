@@ -30,14 +30,14 @@ public class SignUpSteps {
     }
 
     @Entonces("Se registra el usuario correctamente {string}")
-    public void seRegistraElUsuarioCorrectamente(String alert) {
+    public void seRegistraElUsuarioCorrectamente(String alert) throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarTextAlerta(alert);
         Hook.captura();
     }
 
     @Entonces("No se permite registrar el usuario {string}")
-    public void noSePermiteRegistrarElUsuario(String alert) {
+    public void noSePermiteRegistrarElUsuario(String alert) throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarTextAlerta(alert);
         Hook.captura();
