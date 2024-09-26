@@ -14,7 +14,8 @@ public class CreatorChromeDriver {
         optionsChrome.addArguments("--start-maximized");
         optionsChrome.addArguments("--disable-extensions");
         if (ConfigReader.isHeadlessModeEnabled()) {
-            optionsChrome.addArguments("--headless");
+            //optionsChrome.addArguments("--headless");
+            optionsChrome.addArguments("--headless=old");
         }
 
         return new ChromeDriver(optionsChrome);
