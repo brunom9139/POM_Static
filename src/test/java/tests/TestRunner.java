@@ -11,13 +11,15 @@ import org.testng.annotations.Test;
         features = "src/test/java/features", //donde estara lo que se debe ejecutar
         plugin = {
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm", //este genera el reporte en allure
-                "pretty","html:target/cucumber-reports.html"
+                "pretty",
+                "html:target/cucumber-reports.html", // Reporte HTML
+                "json:target/cucumber.json" // Añadimos la generación del archivo cucumber.json
         },
         glue = "steps", //indica donde encontrar los pasos asociados a los escenarios
         tags = ""
 )
 //mvn clean test -X
-//mvn clean test -D"cucumber.filter.tags=@TEST_001"
+//mvn clean test -D"cucumber.filter.tags=@TEST_1001"
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
