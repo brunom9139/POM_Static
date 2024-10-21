@@ -22,6 +22,7 @@ import org.testng.annotations.Test;
 //mvn clean test -D"cucumber.filter.tags=@TEST_1001"
 public class TestRunner extends AbstractTestNGCucumberTests {
 
+
     @BeforeSuite
     public void setupTags() {
         // Obtener el tag desde las propiedades del sistema
