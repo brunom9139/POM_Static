@@ -25,4 +25,13 @@ public class Alerta {
             return "No hay alerta presente";
         }
     }
+
+    public static String getText() {
+        try {
+            Alert alerta = WebDriverManager.getDriver().switchTo().alert();
+            return alerta.getText();
+        } catch (NoAlertPresentException var1) {
+            return "No hay alerta presente";
+        }
+    }
 }
