@@ -1,5 +1,7 @@
 package steps.SignUp;
 
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import io.cucumber.java.es.Cuando;
 import io.cucumber.java.es.Dado;
 import io.cucumber.java.es.Entonces;
@@ -44,4 +46,15 @@ public class SignUpSteps {
     }
 
 
+    @Then("Ingresa nombre de usuario y contraseña validos")
+    public void ingresaNombreDeUsuarioYContrasenaValidos() throws Exception {
+        SignUpPage.signUpUnico();
+    }
+
+    @When("Se registra el usuario correctamente")
+    public void seRegistraElUsuarioCorrectamente() throws InterruptedException {
+        SignUpPage.validarPresenciaAlerta();
+        SignUpPage.validarTextAlerta();
+        Hook.captura();
+    }
 }

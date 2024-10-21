@@ -1,5 +1,8 @@
-Feature: asd
+Feature: dada
 
-  @TEST_XSP-162 @1001
-  Scenario: asd
+  @TEST_XSP-217
+  Scenario: dada
     Given Un usuario no registrado se desea registrar a la página web de la empresa
+    Then Ingresa nombre de usuario y contraseña validos
+    When Se registra el usuario correctamente
+

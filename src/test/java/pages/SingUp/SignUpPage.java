@@ -22,6 +22,15 @@ public class SignUpPage {
         EsperarTiempo.esperar(2);
     }
 
+    public static void signUpUnico() throws Exception {
+        String usernameFinal = RandonStrings.generarCadenaAleatoria(7);
+        Escribir.Escribir(INPUT_USERNAME, usernameFinal);
+        String passwordFinal = RandonStrings.generarCadenaAleatoria(7);
+        Escribir.Escribir(INPUT_PASSWORD, passwordFinal);
+        Click.Clickear(BOTON_SIGN_UP);
+        EsperarTiempo.esperar(2);
+    }
+
     public static void signUpYaRegistrados(String username,String password) throws Exception {
         Escribir.Escribir(INPUT_USERNAME, Data.get(username));
         Escribir.Escribir(INPUT_PASSWORD, Data.get(password));
@@ -37,6 +46,13 @@ public class SignUpPage {
     public static void validarTextAlerta(String alert) throws InterruptedException {
         EsperarTiempo.esperar(5);
         String alertaText = Data.get(alert);
+        String alertaIsPresent = Alerta.alertaGetText();
+        Assert.assertEquals(alertaText, alertaIsPresent,"No se pudo validar la alerta");
+    }
+
+    public static void validarTextAlerta() throws InterruptedException {
+        EsperarTiempo.esperar(5);
+        String alertaText = "Sign up successful.";
         String alertaIsPresent = Alerta.alertaGetText();
         Assert.assertEquals(alertaText, alertaIsPresent,"No se pudo validar la alerta");
     }
