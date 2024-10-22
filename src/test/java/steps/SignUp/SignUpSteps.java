@@ -1,5 +1,6 @@
 package steps.SignUp;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.cucumber.java.es.Cuando;
@@ -48,13 +49,58 @@ public class SignUpSteps {
 
     @Then("Ingresa nombre de usuario y contraseña validos")
     public void ingresaNombreDeUsuarioYContrasenaValidos() throws Exception {
-        SignUpPage.signUpUnico();
+        SignUpPage.registroExitoso();
     }
 
     @When("Se registra el usuario correctamente")
     public void seRegistraElUsuarioCorrectamente() throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
-        SignUpPage.validarTextAlerta();
+        SignUpPage.validarRegistroExitoso();
         Hook.captura();
+    }
+
+
+    @When("El usuario omite información en uno o más campos obligatorios")
+    public void elUsuarioOmiteInformacionEnUnoOMasCamposObligatorios() throws Exception {
+        SignUpPage.registroIncompleto();
+    }
+
+    @Then("El sistema debe mostrar un mensaje de error indicando los campos que deben ser completados")
+    public void elSistemaDebeMostrarUnMensajeDeErrorIndicandoLosCamposQueDebenSerCompletados() throws InterruptedException {
+        SignUpPage.validarPresenciaAlerta();
+        SignUpPage.validarUsuarioContraseñaIncompleto();
+    }
+
+    @When("El usuario completa todos los campos obligatorios con información válida y envía el formulario")
+    public void elUsuarioCompletaTodosLosCamposObligatoriosConInformacionValidaYEnviaElFormulario() throws Exception {
+        SignUpPage.registroExitoso();
+    }
+
+    @Then("El usuario debe ser redirigido a una página de bienvenida con un mensaje de registro exitoso")
+    public void elUsuarioDebeSerRedirigidoAUnaPaginaDeBienvenidaConUnMensajeDeRegistroExitoso() throws InterruptedException {
+        SignUpPage.validarPresenciaAlerta();
+        SignUpPage.validarRegistroExitoso();
+    }
+
+    @When("El usuario ingresa un correo electrónico que ya está en uso")
+    public void elUsuarioIngresaUnCorreoElectronicoQueYaEstaEnUso() throws Exception {
+        SignUpPage.emailRegistrado();
+    }
+
+    @Then("El sistema debe mostrar un mensaje de error en pantalla indicando que ya está registrado.")
+    public void elSistemaDebeMostrarUnMensajeDeErrorEnPantallaIndicandoQueYaEstaRegistrado() throws InterruptedException {
+        SignUpPage.validarPresenciaAlerta();
+        SignUpPage.validarRegistroExistente();
+    }
+
+    @When("El usuario ingresa una contraseña que no cumple con los criterios de seguridad establecidos")
+    public void elUsuarioIngresaUnaContrasenaQueNoCumpleConLosCriteriosDeSeguridadEstablecidos() throws Exception {
+        SignUpPage.passwordDebilEnRegistro();
+    }
+
+    @Then("El sistema debe mostrar un mensaje de error indicando que la contraseña no es lo suficientemente segura")
+    public void elSistemaDebeMostrarUnMensajeDeErrorIndicandoQueLaContrasenaNoEsLoSuficientementeSegura() throws InterruptedException {
+        SignUpPage.validarPresenciaAlerta();
+        SignUpPage.validarPasswordDebil();
     }
 }

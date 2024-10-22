@@ -22,9 +22,26 @@ public class SignUpPage {
         EsperarTiempo.esperar(2);
     }
 
-    public static void signUpUnico() throws Exception {
-        Escribir.Escribir(INPUT_USERNAME, RandonStrings.generarNombre());
+    public static void registroExitoso() throws Exception {
+        Escribir.Escribir(INPUT_USERNAME, RandonStrings.generarNombre()+"@gmail.com");
         Escribir.Escribir(INPUT_PASSWORD, RandonStrings.generarPassword());
+        Click.Clickear(BOTON_SIGN_UP);
+    }
+
+    public static void passwordDebilEnRegistro() throws Exception {
+        Escribir.Escribir(INPUT_USERNAME, RandonStrings.generarNombre()+"@gmail.com");
+        Escribir.Escribir(INPUT_PASSWORD, RandonStrings.generarPasswordDebil());
+        Click.Clickear(BOTON_SIGN_UP);
+    }
+
+    public static void emailRegistrado() throws Exception {
+        Escribir.Escribir(INPUT_USERNAME, "ecosistemas@gmail.com");
+        Escribir.Escribir(INPUT_PASSWORD, RandonStrings.generarPassword());
+        Click.Clickear(BOTON_SIGN_UP);
+    }
+
+    public static void registroIncompleto() throws Exception {
+        Escribir.Escribir(INPUT_USERNAME, RandonStrings.generarNombre()+"@gmail.com");
         Click.Clickear(BOTON_SIGN_UP);
         EsperarTiempo.esperar(2);
     }
@@ -36,7 +53,8 @@ public class SignUpPage {
         EsperarTiempo.esperar(2);
     }
 
-    public static void validarPresenciaAlerta(){
+    public static void validarPresenciaAlerta() throws InterruptedException {
+        EsperarTiempo.esperar(1);
         boolean alertaIsPresent = Alerta.alertaExiste();
         Assert.assertTrue(alertaIsPresent);
     }
@@ -48,7 +66,20 @@ public class SignUpPage {
         Assert.assertEquals(alertaText, alertaIsPresent,"No se pudo validar la alerta");
     }
 
-    public static void validarTextAlerta() throws InterruptedException {
+    public static void validarRegistroExitoso() throws InterruptedException {
         Assert.assertEquals("Sign up successful.", Alerta.getText(),"No se pudo validar la alerta");
     }
+
+    public static void validarUsuarioContraseñaIncompleto() throws InterruptedException {
+        Assert.assertEquals("Please fill out Username and Password.", Alerta.getText(),"No se pudo validar la alerta");
+    }
+
+    public static void validarRegistroExistente() throws InterruptedException {
+        Assert.assertEquals("This user already exist.", Alerta.getText(),"No se pudo validar la alerta");
+    }
+
+    public static void validarPasswordDebil() throws InterruptedException {
+        Assert.assertEquals("Weak password. Use at least 6 characters with a mix of uppercase, lowercase, numbers, and symbols.", Alerta.getText(),"No se pudo validar la alerta");
+    }
+
 }
