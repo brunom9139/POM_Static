@@ -69,6 +69,7 @@ public class SignUpSteps {
     public void elSistemaDebeMostrarUnMensajeDeErrorIndicandoLosCamposQueDebenSerCompletados() throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarUsuarioContraseñaIncompleto();
+        Hook.captura();
     }
 
     @When("El usuario completa todos los campos obligatorios con información válida y envía el formulario")
@@ -80,6 +81,7 @@ public class SignUpSteps {
     public void elUsuarioDebeSerRedirigidoAUnaPaginaDeBienvenidaConUnMensajeDeRegistroExitoso() throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarRegistroExitoso();
+        Hook.captura();
     }
 
     @When("El usuario ingresa un correo electrónico que ya está en uso")
@@ -91,6 +93,7 @@ public class SignUpSteps {
     public void elSistemaDebeMostrarUnMensajeDeErrorEnPantallaIndicandoQueYaEstaRegistrado() throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarRegistroExistente();
+        Hook.captura();
     }
 
     @When("El usuario ingresa una contraseña que no cumple con los criterios de seguridad establecidos")
@@ -102,5 +105,6 @@ public class SignUpSteps {
     public void elSistemaDebeMostrarUnMensajeDeErrorIndicandoQueLaContrasenaNoEsLoSuficientementeSegura() throws InterruptedException {
         SignUpPage.validarPresenciaAlerta();
         SignUpPage.validarPasswordDebil();
+        Hook.captura();
     }
 }
